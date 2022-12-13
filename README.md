@@ -16,8 +16,8 @@ A social media site for tracking and sharing your fitenss progress in monthly fi
 
 ### Technology
 
-*React
-*Javascript
-*CSS
-*Node.js/Express
-\*PostgreSQL
+- React
+- Javascript
+- CSS
+- Node.js/Express
+- PostgreSQL
