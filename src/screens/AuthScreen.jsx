@@ -1,9 +1,10 @@
 import React from "react";
+import SignInBody from "../components/auth/SingInBody";
 
 function AuthScreen() {
   return (
     <div>
-      <h1>authscreen</h1>
+      <SignInBody />
     </div>
   );
 }
