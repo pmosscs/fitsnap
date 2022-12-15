@@ -1,33 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Header.css";
 
 function Header() {
   return (
-    <header>
-      <h1>fitsnap header</h1>
-      <nav>
+    <div className="header-wrapper">
+      <header>
         <Link to="/">
-          <button>Home</button>
+          <h1>FitSnap</h1>
         </Link>
-        <Link to="/auth">
-          <button>Auth</button>
-        </Link>
-        <Link to="/improve">
-          <button>Home</button>
-        </Link>
-        <Link to="/submit">
-          <button>submit</button>
-        </Link>
+        <nav>
+          <Link to="/">
+            <button>Home</button>
+          </Link>
+          <Link to="/profile">
+            <button>Profile</button>
+          </Link>
+          <Link to="/improve">
+            <button>Improve</button>
+          </Link>
 
-        {/* <ul>
-          <li>Home</li>
-          <li>Auth</li>
-          <li>Profile</li>
-          <li>Submit</li>
-          <li>Improve</li>
-        </ul> */}
-      </nav>
-    </header>
+          <button>Logout</button>
+        </nav>
+      </header>
+      <div className="header-line"></div>
+    </div>
   );
 }
 

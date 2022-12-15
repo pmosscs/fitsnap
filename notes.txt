@@ -1,3 +1,6 @@
 profile pictures: save on Amazon S3, then reference S3 URL.
 
 I DID NOT CONSIDER SETTING UP ACCOUNT WITH PHOTO. Need more screens and components
+
+
+add header hidden class when auth context is not authorized
