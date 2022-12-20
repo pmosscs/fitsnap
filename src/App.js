@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route index element={<HomeScreen />} />
         <Route path="/auth" element={<AuthScreen />} />

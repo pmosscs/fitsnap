@@ -63,14 +63,14 @@ module.exports = {
   login: async (req, res) => {
     try {
       const { username, password, email } = req.body;
-      const foundUser = await User.findOne({ where: { username, email } });
+      const foundUser = await User.findOne({ where: { username } });
       if (foundUser) {
         const isAuthenticated = bcrypt.compareSync(
           password,
           foundUser.password
         );
         if (isAuthenticated) {
-          const token = createWebToken(
+          const token = createToken(
             foundUser.dataValues.username,
             foundUser.dataValues.id
           );

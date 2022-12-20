@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useContext } from "react";
+import AuthContext from "../../store/AuthContext";
 
 function SignInForm() {
   const [username, setUsername] = useState("");
@@ -8,18 +10,28 @@ function SignInForm() {
     const { id, value } = e.target;
     if (id === "username") {
       setUsername(value);
-      console.log(value);
     }
     if (id === "password") {
       setPassword(value);
-      console.log(value);
     }
   };
 
+  const authCtx = useContext(AuthContext);
+
   const submitHandler = (e) => {
     e.preventDefault();
+    const baseURL = `http://localhost:3000`;
+
     console.log(username, password);
     //This is where you will make a body object with the variables, then send that in an axios.post to a controller that performs the login function we create
+    const body = { username, password };
+    axios
+      .post(`${baseURL}/login`, body)
+      .then(({ data }) => {
+        console.log(data);
+        authCtx.login(data.token, data.exp, data.userId);
+      })
+      .catch((err) => console.log("login error ", err));
   };
 
   return (
@@ -34,7 +46,7 @@ function SignInForm() {
           onChange={(e) => inputChangeHandler(e)}
         />
         <input
-          type="text"
+          type="password"
           id="password"
           placeholder="PASSWORD"
           value={password}

@@ -5,7 +5,6 @@ import AuthContext from "../store/AuthContext";
 
 function Header() {
   const authCtx = useContext(AuthContext);
-  //${!authCtx.token ? "hidden" : ""}
 
   return (
     <div className={`header-wrapper `}>
@@ -24,7 +23,7 @@ function Header() {
             <button>Improve</button>
           </Link>
 
-          <button>Logout</button>
+          <button onClick={() => authCtx.logout()}>Logout</button>
         </nav>
       </header>
       <div className="header-line"></div>
