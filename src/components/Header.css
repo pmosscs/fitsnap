@@ -1,5 +1,4 @@
 
-
 header {
     display: flex;
     flex-direction: row;
@@ -43,4 +42,8 @@ h1 {
 
 Header * {
     text-decoration: none;
+}
+
+.hidden {
+    display: none;
 }

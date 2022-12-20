@@ -6,8 +6,13 @@ import HomeScreen from "./screens/HomeScreen";
 import ImprovementScreen from "./screens/ImprovementScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import SubmitSnapScreen from "./screens/SubmitSnapScreen";
+import { useContext } from "react";
+import AuthContext from "./store/AuthContext";
 
 function App() {
+  const authCtx = useContext(AuthContext);
+  // console.log(authCtx.token);
+
   return (
     <div className="App">
       {/* <Header /> */}

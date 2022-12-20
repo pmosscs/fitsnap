@@ -19,6 +19,7 @@ function SignInForm() {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(username, password);
+    //This is where you will make a body object with the variables, then send that in an axios.post to a controller that performs the login function we create
   };
 
   return (

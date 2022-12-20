@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import AuthContext from "../store/AuthContext";
 
 function Header() {
+  const authCtx = useContext(AuthContext);
+  //${!authCtx.token ? "hidden" : ""}
+
   return (
-    <div className="header-wrapper">
+    <div className={`header-wrapper `}>
       <header>
         <Link to="/">
           <h1>FitSnap</h1>
