@@ -18,4 +18,17 @@ module.exports = {
       allowNull: true,
     },
   }),
+
+  Monthly_Stat: db.define("monthly_stat", {
+    month_id: {
+      primaryKey: true,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+    },
+    month: DataTypes.STRING,
+    mile: DataTypes.INTEGER,
+    push_ups: DataTypes.INTEGER,
+    pull_ups: DataTypes.INTEGER,
+  }),
 };

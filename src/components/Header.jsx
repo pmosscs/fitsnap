@@ -7,7 +7,7 @@ function Header() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <div className={`header-wrapper `}>
+    <div className={`header-wrapper ${!authCtx.token ? "hidden" : ""}`}>
       <header>
         <Link to="/">
           <h1>FitSnap</h1>

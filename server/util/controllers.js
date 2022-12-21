@@ -93,4 +93,22 @@ module.exports = {
       res.sendStatus(400);
     }
   },
+
+  getUserInfo: async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const uInfo = await User.findOne({
+        where: { id: userId },
+      });
+      res.status(200).send({
+        username: uInfo.dataValues.username,
+        userId: uInfo.dataValues.id,
+        profile_URL: uInfo.dataValues.profile_URL,
+      });
+    } catch (error) {
+      console.log("error in getUserInfo");
+      console.log(error);
+      res.sendStatus(400);
+    }
+  },
 };

@@ -1,9 +1,10 @@
 import React from "react";
+import SubmitForm from "../components/submit/SubmitForm";
 
 function SubmitSnapScreen() {
   return (
     <>
-      <h1>Submit page</h1>
+      <SubmitForm />
     </>
   );
 }

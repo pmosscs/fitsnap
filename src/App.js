@@ -11,17 +11,31 @@ import AuthContext from "./store/AuthContext";
 
 function App() {
   const authCtx = useContext(AuthContext);
-  // console.log(authCtx.token);
 
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route index element={<HomeScreen />} />
-        <Route path="/auth" element={<AuthScreen />} />
-        <Route path="/profile/:userId" element={<ProfileScreen />} />
-        <Route path="/submit" element={<SubmitSnapScreen />} />
-        <Route path="/improve" element={<ImprovementScreen />} />
+        <Route
+          index
+          element={authCtx.token ? <HomeScreen /> : <AuthScreen />}
+        />
+        <Route
+          path="/auth"
+          element={!authCtx.token ? <AuthScreen /> : <HomeScreen />}
+        />
+        <Route
+          path="/profile"
+          element={authCtx.token ? <ProfileScreen /> : <AuthScreen />}
+        />
+        <Route
+          path="/submit"
+          element={authCtx.token ? <SubmitSnapScreen /> : <AuthScreen />}
+        />
+        <Route
+          path="/improve"
+          element={authCtx.token ? <ImprovementScreen /> : <AuthScreen />}
+        />
       </Routes>
     </div>
   );
