@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { User } = require("./models");
+const { User, Monthly_Stat } = require("./models");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { SECRET } = process.env;
@@ -109,6 +109,23 @@ module.exports = {
       console.log("error in getUserInfo");
       console.log(error);
       res.sendStatus(400);
+    }
+  },
+
+  submitSnap: async (req, res) => {
+    const { mile, pullUps, pushUps, month } = req.body;
+    try {
+      // create a variable that uses monthlystat.create and add in ^^
+      const newEntry = await Monthly_Stat.create({
+        month: req.body.month,
+        mile: req.body.mile,
+        push_ups: req.body.pushUps,
+        pull_ups: req.body.pullUps,
+      });
+      res.status(200).send("Fitsnap Submitted!");
+    } catch (error) {
+      console.log("error in submit snap controller");
+      console.log(error);
     }
   },
 };

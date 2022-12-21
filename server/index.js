@@ -11,13 +11,20 @@ server.use(cors());
 
 //relationships
 User.hasMany(Monthly_Stat, { foreignKey: "id" });
+
 //endpoints
-const { register, login, getUserInfo } = require("./util/controllers");
-// server.post("/users", createUser);
+const {
+  register,
+  login,
+  getUserInfo,
+  submitSnap,
+} = require("./util/controllers");
+
 // here there will be enpoints for login and register, not create user. create user will be inside the register enpoint function.
 server.post("/register", register);
 server.post("/login", login);
 server.get("/userinfo/:userId", getUserInfo);
+server.post("/submitsnap", submitSnap);
 
 //and sync the db to your database
 db.sync().then(() => {
