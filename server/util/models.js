@@ -32,3 +32,5 @@ module.exports = {
     pull_ups: DataTypes.INTEGER,
   }),
 };
+
+//sequelize orm

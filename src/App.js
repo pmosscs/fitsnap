@@ -36,6 +36,7 @@ function App() {
           path="/improve"
           element={authCtx.token ? <ImprovementScreen /> : <AuthScreen />}
         />
+        <Route path="*" element={<HomeScreen />} />
       </Routes>
     </div>
   );

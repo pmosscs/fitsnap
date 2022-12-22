@@ -1,6 +1,6 @@
 import axios from "axios";
-import e from "cors";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SubmitForm() {
   const [mile, setMile] = useState(""); //* what can I change this to to make handling data easier?
@@ -22,12 +22,18 @@ function SubmitForm() {
     }
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = { mile, pushUps, pullUps, month };
     axios
-      .post("/submitsnap", body)
-      .then((res) => console.log(res))
+      .post("http://localhost:4000/submitsnap", body)
+      .then((res) => {
+        console.log(res.data);
+        alert(res.data);
+        navigate("/");
+      })
       .catch((error) => console.log("error on front end submit ", error));
   };
 

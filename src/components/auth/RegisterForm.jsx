@@ -28,7 +28,7 @@ function RegisterFrom() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const baseURL = `http://localhost:3000`;
+    const baseURL = `http://localhost:4000`;
     const body = { username, email, password };
 
     if (password === rePassword) {

@@ -11,7 +11,7 @@ function HomeScreen() {
 
   const getUserInfo = useCallback(() => {
     axios
-      .get(`/userinfo/${userId}`)
+      .get(`http://localhost:4000/userinfo/${userId}`)
 
       .then(({ data }) => {
         setUserInfo(data);
@@ -27,8 +27,8 @@ function HomeScreen() {
 
   return (
     <div>
-      {<HomeMargin userInfo={userInfo} />}
-      {<HomeBody />}
+      <HomeMargin userInfo={userInfo} />
+      <HomeBody />
     </div>
   );
 }

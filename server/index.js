@@ -10,7 +10,7 @@ server.use(express.json());
 server.use(cors());
 
 //relationships
-User.hasMany(Monthly_Stat, { foreignKey: "id" });
+User.hasMany(Monthly_Stat);
 
 //endpoints
 const {
@@ -28,5 +28,5 @@ server.post("/submitsnap", submitSnap);
 
 //and sync the db to your database
 db.sync().then(() => {
-  server.listen(3000, () => console.log("server running on 3000"));
+  server.listen(4000, () => console.log("server running on 4000"));
 });
