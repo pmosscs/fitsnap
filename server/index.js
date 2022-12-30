@@ -18,13 +18,17 @@ const {
   login,
   getUserInfo,
   submitSnap,
+  changeImage,
 } = require("./util/controllers");
+
+const { isAuthenticated } = require("./middleware/isAuthenticated");
 
 // here there will be enpoints for login and register, not create user. create user will be inside the register enpoint function.
 server.post("/register", register);
 server.post("/login", login);
 server.get("/userinfo/:userId", getUserInfo);
 server.post("/submitsnap", submitSnap);
+server.put("/userinfo/:userId", changeImage);
 
 //and sync the db to your database
 db.sync().then(() => {

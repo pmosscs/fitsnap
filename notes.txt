@@ -1,6 +1,8 @@
 profile pictures: save on Amazon S3, then reference S3 URL.
 
-I DID NOT CONSIDER SETTING UP ACCOUNT WITH PHOTO. Need more screens and components
 
+DONE - add header hidden class when auth context is not authorized
 
-add header hidden class when auth context is not authorized
+add default img on img error to notify user of failed img link
+
+ask about foreign keys. Id not showing up in bit.io

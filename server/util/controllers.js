@@ -128,4 +128,21 @@ module.exports = {
       console.log(error);
     }
   },
+
+  changeImage: async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const { profile_URL } = req.body;
+      await User.update(
+        { profile_URL: profile_URL },
+        { where: { id: +userId } }
+      );
+
+      res.status(200).send("profile picture updated!");
+    } catch (error) {
+      console.log(error);
+      console.log("error in changeImage controller");
+      res.sendStatus(400);
+    }
+  },
 };

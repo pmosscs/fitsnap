@@ -1,9 +1,44 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useContext } from "react";
+import AuthContext from "../../store/AuthContext";
 import "./Profile.css";
 
 function ProfileMargin({ userInfo }) {
   const [isButton, setIsButton] = useState(true);
+  const [imgLink, setImgLink] = useState("");
   console.log("from margin ", userInfo);
+
+  const { token } = useContext(AuthContext);
+
+  const changeHandler = (e) => {
+    const { value } = e.target;
+    setImgLink(value);
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log("submitHandler called");
+    axios
+      .put(
+        `http://localhost:4000/userinfo/${userInfo.userId}`,
+        { profile_URL: imgLink },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      )
+      .then((res) => console.log(res))
+      .catch((err) => {
+        console.log(err);
+        console.log("error on update profile picture");
+      });
+
+    setImgLink("");
+    setIsButton(true);
+    console.log(imgLink);
+  };
+
   return (
     <div>
       <div className="profile-pic">
@@ -18,19 +53,22 @@ function ProfileMargin({ userInfo }) {
       </div>
       <div>
         {isButton ? (
-          <button onClick={() => setIsButton(false)}>
+          <button className="img-btn" onClick={() => setIsButton(false)}>
             Change Profile Picture
           </button>
         ) : (
           <div>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setIsButton(true);
-              }}
-            >
-              <input type="text" />
-              <button type="submit">Submit</button>
+            <form onSubmit={(e) => submitHandler(e)}>
+              <input
+                className="img-input"
+                type="text"
+                placeholder="Paste Image Address"
+                value={imgLink}
+                onChange={(e) => changeHandler(e)}
+              />
+              <button className="img-btn2" type="submit">
+                Update
+              </button>
             </form>
           </div>
         )}
