@@ -18,21 +18,23 @@ function ProfileMargin({ userInfo }) {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("submitHandler called");
-    axios
-      .put(
-        `http://localhost:4000/userinfo/${userInfo.userId}`,
-        { profile_URL: imgLink },
-        {
-          headers: {
-            authorization: token,
-          },
-        }
-      )
-      .then((res) => console.log(res))
-      .catch((err) => {
-        console.log(err);
-        console.log("error on update profile picture");
-      });
+    imgLink === ""
+      ? setIsButton(true)
+      : axios
+          .put(
+            `http://localhost:4000/userinfo/${userInfo.userId}`,
+            { profile_URL: imgLink },
+            {
+              headers: {
+                authorization: token,
+              },
+            }
+          )
+          .then((res) => console.log(res))
+          .catch((err) => {
+            console.log(err);
+            console.log("error on update profile picture");
+          });
 
     setImgLink("");
     setIsButton(true);
@@ -40,7 +42,7 @@ function ProfileMargin({ userInfo }) {
   };
 
   return (
-    <div>
+    <div className="pro-margin">
       <div className="profile-pic">
         <img
           src={
@@ -51,13 +53,13 @@ function ProfileMargin({ userInfo }) {
           alt="profile"
         />
       </div>
-      <div>
+      <div className="update-img-div">
         {isButton ? (
           <button className="img-btn" onClick={() => setIsButton(false)}>
             Change Profile Picture
           </button>
         ) : (
-          <div>
+          <div className="update-btn">
             <form onSubmit={(e) => submitHandler(e)}>
               <input
                 className="img-input"

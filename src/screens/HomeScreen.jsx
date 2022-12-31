@@ -3,6 +3,7 @@ import HomeBody from "../components/home/HomeBody";
 import HomeMargin from "../components/home/HomeMargin";
 import AuthContext from "../store/AuthContext";
 import axios from "axios";
+import "../components/home/Home.css";
 
 function HomeScreen() {
   const { userId } = useContext(AuthContext);
@@ -26,7 +27,7 @@ function HomeScreen() {
   console.log(userInfo);
 
   return (
-    <div>
+    <div className="home-screen">
       <HomeMargin userInfo={userInfo} />
       <HomeBody />
     </div>

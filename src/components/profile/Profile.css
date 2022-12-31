@@ -1,7 +1,8 @@
 .profile-pic img {
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
+    margin: 10px 0;
 }
 
 .img-btn {
@@ -39,6 +40,52 @@
     /* margin: 20px; */
     border: solid 3px;
 }
+
+.profile-middle-bar {
+    width: 1.5px;
+    height: 90%;
+    background-color: black;
+    margin-right: 50px;
+}
+
+
+.profile {
+    display: flex;
+}
+
+.profile-feed {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.profile-screen {
+    display: flex;
+    margin-top: 30px;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.pro-margin { 
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.update-btn form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.update-img-div {
+    margin: 15px 0;
+}
+
+
+
 
 /* .signIn-form input, .register-form input {
     border-radius: 50px;

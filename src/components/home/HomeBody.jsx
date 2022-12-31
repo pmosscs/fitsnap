@@ -3,8 +3,9 @@ import "./Home.css";
 
 const HomeBody = () => {
   return (
-    <div>
-      <h2>Feed:</h2>
+    <div className="home">
+      <div className="middle-bar"></div>
+      <div className="home-feed"></div>
     </div>
   );
 };

@@ -2,6 +2,8 @@ import React, { useState, useCallback, useContext, useEffect } from "react";
 import ProfileMargin from "../components/profile/ProfileMargin";
 import axios from "axios";
 import AuthContext from "../store/AuthContext";
+import ProfileFeed from "../components/profile/ProfileFeed";
+import "../components/profile/Profile.css";
 
 function ProfileScreen() {
   const { userId } = useContext(AuthContext);
@@ -24,9 +26,10 @@ function ProfileScreen() {
 
   console.log(userInfo);
   return (
-    <>
+    <div className="profile-screen">
       <ProfileMargin userInfo={userInfo} />
-    </>
+      <ProfileFeed userInfo={userInfo} />
+    </div>
   );
 }
 
