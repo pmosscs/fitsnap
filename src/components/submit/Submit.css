@@ -1,0 +1,82 @@
+.submit-page {
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+
+}
+
+ /* #209CEE and #F4F4F4 */
+
+.submit-section {
+    background-color: #209CEE;
+    width: 60%;
+    margin: 50px 0;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 20px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submit-title {
+    color: #F4F4F4;
+    font-size: 50px;
+    margin-top: 30px;
+}
+
+.month-title {
+    font-size: 35px;
+    margin: 25px;
+}
+
+.submit-page form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #F4F4F4;
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 50px;
+}
+
+.submit-page form button {
+    align-self: center;
+    
+    border-color: #209CEE;
+    background-color: #209CEE;
+    border-radius: 50px;
+    font-size: 25px;
+    color: white;
+    padding: 15px 50px;
+    margin: 20px;
+    border: solid 3px;
+}
+
+.submit-page form button:hover {
+    background-color: white;
+    color: #209CEE
+}
+
+.submit-page form * {
+    font-size: 25px;
+
+}
+
+.submit-page form input {
+    border-radius: 50px;
+    border: rgba(0, 0, 0, 0.3) solid;
+    font-size: 20px;
+    padding: 15px 30px;
+    margin: 5px 0 5px 10px;
+    width: 40px;
+}
+
+#mileMin {
+    margin-right: 10px;
+}
+
+#mileMin, #mileSec {
+    width: 40px;
+}
+

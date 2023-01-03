@@ -80,7 +80,7 @@ function ProfileMargin({ userInfo }) {
       </div>
       <div>
         <button className="submit-snap-btn" onClick={() => navigate("/submit")}>
-          Submit a Fitsnap
+          Submit a FitSnap
         </button>
       </div>
     </div>
