@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useContext } from "react";
 import AuthContext from "../../store/AuthContext";
+import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 
 function ProfileMargin({ userInfo }) {
@@ -41,6 +42,8 @@ function ProfileMargin({ userInfo }) {
     console.log(imgLink);
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className="pro-margin">
       <div className="profile-pic">
@@ -74,6 +77,11 @@ function ProfileMargin({ userInfo }) {
             </form>
           </div>
         )}
+      </div>
+      <div>
+        <button className="submit-snap-btn" onClick={() => navigate("/submit")}>
+          Submit a Fitsnap
+        </button>
       </div>
     </div>
   );

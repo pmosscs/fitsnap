@@ -19,6 +19,11 @@ const HomeMargin = ({ userInfo }) => {
           alt="profile"
         />
       </div>
+      <div>
+        <button className="submit-snap-btn" onClick={() => navigate("/submit")}>
+          Submit a Fitsnap
+        </button>
+      </div>
       <h2>{username}</h2>
     </div>
   );

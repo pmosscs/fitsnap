@@ -3,16 +3,20 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function SubmitForm() {
-  const [mile, setMile] = useState(""); //* what can I change this to to make handling data easier?
+  const [mileMin, setMileMin] = useState(""); //* what can I change this to to make handling data easier?
+  const [mileSec, setMileSec] = useState("");
   const [pushUps, setPushUps] = useState("");
   const [pullUps, setPullUps] = useState("");
 
-  const month = "december"; //* find how to make dynamic and change for each month
+  const month = "january"; //* find how to make dynamic and change for each month
 
   const changeHandler = (e) => {
     const { id, value } = e.target;
-    if (id === "mile") {
-      setMile(value);
+    if (id === "mileMin") {
+      setMileMin(value);
+    }
+    if (id === "mileSec") {
+      setMileSec(value);
     }
     if (id === "pushUps") {
       setPushUps(value);
@@ -26,7 +30,7 @@ function SubmitForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = { mile, pushUps, pullUps, month };
+    const body = { mileMin, mileSec, pushUps, pullUps, month };
     axios
       .post("http://localhost:4000/submitsnap", body)
       .then((res) => {
@@ -39,13 +43,20 @@ function SubmitForm() {
 
   return (
     <div>
-      <h2>December</h2>
+      <h2>January</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
-          placeholder="mile"
-          id="mile"
-          value={mile}
+          placeholder="mileMin"
+          id="mileMin"
+          value={mileMin}
+          onChange={(e) => changeHandler(e)}
+        />
+        <input
+          type="text"
+          placeholder="mileSec"
+          id="mileSec"
+          value={mileSec}
           onChange={(e) => changeHandler(e)}
         />
         <input

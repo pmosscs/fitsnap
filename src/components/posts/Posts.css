@@ -1,0 +1,60 @@
+.post-container {
+    margin: 10px;
+    border: solid black 1px;
+    width: 700px;
+    height: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.post-pic {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    background-color: gray;
+    margin: 25px;
+}
+
+.post-name {
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.date {
+    margin-left: 30px;
+}
+
+.post-improve {
+    font-size: 20px;
+}
+
+.post-categories {
+    font-size: 18px;
+    margin: 10px 15px;
+}
+
+.post-info {
+    width: 90%;
+    align-self: center;
+    margin: 15px 0;
+}
+
+.comments, .comments-writing {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.comments {
+    margin-top: 30px;
+}
+
+.comments-writing {
+    margin-bottom: 30px;
+    padding: 0 25px;
+}
