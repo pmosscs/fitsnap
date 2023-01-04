@@ -8,6 +8,7 @@ function SubmitForm() {
   const [mileSec, setMileSec] = useState("");
   const [pushUps, setPushUps] = useState("");
   const [pullUps, setPullUps] = useState("");
+  const [comment, setcomment] = useState("");
 
   const month = "january"; //* find how to make dynamic and change for each month
 
@@ -25,19 +26,22 @@ function SubmitForm() {
     if (id === "pullUps") {
       setPullUps(value);
     }
+    if (id === "comment") {
+      setcomment(value);
+    }
   };
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = { mileMin, mileSec, pushUps, pullUps, month };
+    const body = { mileMin, mileSec, pushUps, pullUps, month, comment };
     axios
       .post("http://localhost:4000/submitsnap", body)
       .then((res) => {
         console.log(res.data);
         alert(res.data);
-        navigate("/");
+        navigate("/profile");
       })
       .catch((error) => console.log("error on front end submit ", error));
   };
@@ -99,7 +103,17 @@ function SubmitForm() {
                 />
               </td>
             </tr>
+            <tr className="table-row">
+              <td>
+                <label id="comment-title">Comments:</label>
+              </td>
+            </tr>
           </table>
+          <textarea
+            id="comment"
+            value={comment}
+            onChange={(e) => changeHandler(e)}
+          />
           <button type="submit">Submit</button>
         </form>
       </div>

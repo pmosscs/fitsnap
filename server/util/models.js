@@ -31,6 +31,7 @@ module.exports = {
     mile_sec: DataTypes.INTEGER,
     push_ups: DataTypes.INTEGER,
     pull_ups: DataTypes.INTEGER,
+    comment: DataTypes.STRING,
   }),
 };
 
