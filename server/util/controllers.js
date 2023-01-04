@@ -113,9 +113,9 @@ module.exports = {
   },
 
   submitSnap: async (req, res) => {
-    const { mileMin, mileSec, pullUps, pushUps, month, comment } = req.body;
+    const { mileMin, mileSec, pullUps, pushUps, month, comment, userId } =
+      req.body;
     try {
-      // create a variable that uses monthlystat.create and add in ^^
       const newEntry = await Monthly_Stat.create({
         month: req.body.month,
         mile_min: req.body.mileMin,
@@ -123,6 +123,7 @@ module.exports = {
         push_ups: req.body.pushUps,
         pull_ups: req.body.pullUps,
         comment: req.body.comment,
+        userId: userId,
       });
       res.status(200).send("Fitsnap Submitted!");
     } catch (error) {

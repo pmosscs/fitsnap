@@ -1,14 +1,17 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../../store/AuthContext";
 import "./Submit.css";
 
 function SubmitForm() {
-  const [mileMin, setMileMin] = useState(""); //* what can I change this to to make handling data easier?
+  const [mileMin, setMileMin] = useState("");
   const [mileSec, setMileSec] = useState("");
   const [pushUps, setPushUps] = useState("");
   const [pullUps, setPullUps] = useState("");
   const [comment, setcomment] = useState("");
+
+  const { userId } = useContext(AuthContext);
 
   const month = "january"; //* find how to make dynamic and change for each month
 
@@ -35,7 +38,8 @@ function SubmitForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = { mileMin, mileSec, pushUps, pullUps, month, comment };
+    const body = { mileMin, mileSec, pushUps, pullUps, month, comment, userId };
+    // ****** send back userId
     axios
       .post("http://localhost:4000/submitsnap", body)
       .then((res) => {
