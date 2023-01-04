@@ -1,28 +1,29 @@
 import React from "react";
 import "./Posts.css";
 
-function Posts() {
+function Posts({ post, userInfo }) {
+  //* find how to manage dates
+  console.log("in posts", post, post.user);
   return (
     <div className="post-container">
       <div className="post-header">
-        <div className="post-pic"></div>
-        <h5 className="post-name">Peyton Moss</h5>
+        <div className="post-pic">
+          <img src={post.user.profile_URL} alt="profile pic" />
+        </div>
+        <h5 className="post-name">{post.user.username}</h5>
       </div>
+
       <p className="date">Jan 3, 2022</p>
       <div className="post-info">
         <h4 className="post-improve">Improvement</h4>
-        <p className="post-categories">Push-Ups: 5</p>
-        <p className="post-categories">Pull-Ups: 3</p>
-        <p className="post-categories">Mile: 7:55</p>
+        <p className="post-categories">Push-Ups: {post.push_ups}</p>
+        <p className="post-categories">Pull-Ups: {post.pull_ups}</p>
+        <p className="post-categories">
+          Mile: {post.mile_min}:{post.mile_sec}
+        </p>
         <div>
           <h4 className="comments">Commments:</h4>
-          <p className="comments-writing">
-            These are my comments on the post here. Lalalalala Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Consectetur deserunt corrupti
-            accusamus optio voluptatibus deleniti. Rem, accusantium iusto eos
-            perferendis officia asperiores distinctio enim? Ea eos fugiat magnam
-            doloribus? Dolor!
-          </p>
+          <p className="comments-writing">{post.comment}</p>
         </div>
       </div>
     </div>

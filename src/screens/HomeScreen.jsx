@@ -29,7 +29,7 @@ function HomeScreen() {
   return (
     <div className="home-screen">
       <HomeMargin userInfo={userInfo} />
-      <HomeBody />
+      <HomeBody userInfo={userInfo} />
     </div>
   );
 }

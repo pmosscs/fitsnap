@@ -1,5 +1,5 @@
 .post-container {
-    margin: 10px;
+    margin: 10px 10px 50px 10px;
     border: solid black 1px;
     width: 700px;
     height: fit-content;
@@ -14,11 +14,10 @@
     align-items: center;
 }
 
-.post-pic {
+.post-pic img {
     height: 75px;
     width: 75px;
     border-radius: 50%;
-    background-color: gray;
     margin: 25px;
 }
 

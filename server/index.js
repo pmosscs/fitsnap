@@ -11,6 +11,7 @@ server.use(cors());
 
 //relationships
 User.hasMany(Monthly_Stat);
+Monthly_Stat.belongsTo(User);
 
 //endpoints
 const {
@@ -19,6 +20,8 @@ const {
   getUserInfo,
   submitSnap,
   changeImage,
+  getUserPosts,
+  getAllPosts,
 } = require("./util/controllers");
 
 const { isAuthenticated } = require("./middleware/isAuthenticated");
@@ -29,6 +32,8 @@ server.post("/login", login);
 server.get("/userinfo/:userId", getUserInfo);
 server.post("/submitsnap", submitSnap);
 server.put("/userinfo/:userId", changeImage);
+server.get("/getuserposts/:userId", getUserPosts);
+server.get("/getallposts", getAllPosts);
 
 //and sync the db to your database
 db.sync().then(() => {

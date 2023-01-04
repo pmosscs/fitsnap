@@ -148,4 +148,45 @@ module.exports = {
       res.sendStatus(400);
     }
   },
+
+  getUserPosts: async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const posts = await Monthly_Stat.findAll({
+        where: { userId: userId },
+        include: [
+          {
+            model: User,
+            required: true,
+            attributes: ["username", "profile_URL"],
+          },
+        ],
+      });
+      res.status(200).send(posts);
+    } catch (error) {
+      console.log("error in getUserPosts");
+      console.log(error);
+      res.sendStatus(400);
+    }
+  },
+
+  getAllPosts: async (req, res) => {
+    try {
+      const posts = await Monthly_Stat.findAll({
+        where: { month: "january" },
+        include: [
+          {
+            model: User,
+            required: true,
+            attributes: ["username", "profile_URL"],
+          },
+        ],
+      });
+      res.status(200).send(posts);
+    } catch (error) {
+      console.log("error in getAllPosts");
+      console.log(error);
+      res.sendStatus(400);
+    }
+  },
 };

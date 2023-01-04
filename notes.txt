@@ -1,4 +1,3 @@
-profile pictures: save on Amazon S3, then reference S3 URL.
 
 
 DONE - add header hidden class when auth context is not authorized
