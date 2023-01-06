@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useState } from "react";
 import Posts from "../posts/Posts";
 import "./Profile.css";
 import axios from "axios";
+import LineChart from "./LineChart";
+import LineChartPush from "./LineChartPush";
 
 const ProfileFeed = ({ userInfo }) => {
   const { userId } = userInfo;
@@ -27,7 +29,15 @@ const ProfileFeed = ({ userInfo }) => {
   return (
     <div className="profile">
       <div className="profile-middle-bar"></div>
-      <div className="profile-feed">{profilePosts}</div>
+      <div className="profile-feed">
+        <h3>{userInfo.username}</h3>
+        <h4 className="total-title">Total Fitsnaps: {posts.length}</h4>
+        <div className="graphs-div">
+          <LineChart posts={posts} />
+          {/* <LineChartPush posts={posts} /> */}
+        </div>
+        {profilePosts}
+      </div>
     </div>
   );
 };

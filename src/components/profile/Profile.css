@@ -97,6 +97,16 @@
     color: #209CEE
 }
 
+.graphs-div {
+    margin-bottom: 50px;
+}
+
+.total-title {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
 
 /* .signIn-form input, .register-form input {
     border-radius: 50px;

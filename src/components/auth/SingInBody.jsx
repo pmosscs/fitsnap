@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InfoDisplay from "./InfoDisplay";
 import RegisterFrom from "./RegisterForm";
 import "./SignInBody.css";
 import SignInForm from "./SignInForm";
@@ -23,7 +24,9 @@ function SignInBody() {
           {register ? signInBtn : registerBtn}
         </div>
         <div className="line"></div>
-        <div className="sign-reg-right"></div>
+        <div className="sign-reg-right">
+          <InfoDisplay />
+        </div>
       </div>
     </div>
   );

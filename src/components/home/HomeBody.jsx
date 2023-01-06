@@ -27,7 +27,11 @@ const HomeBody = ({ userInfo }) => {
   return (
     <div className="home">
       <div className="middle-bar"></div>
-      <div className="home-feed">{profilePosts}</div>
+      <div className="home-feed">
+        {}
+        {profilePosts}
+      </div>
+      <div className="sidebar"></div>
     </div>
   );
 };

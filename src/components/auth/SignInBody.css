@@ -30,6 +30,9 @@
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     background-color: #209CEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sign-reg-left {
@@ -104,4 +107,30 @@ h3 {
 .signIn-form button:hover, .register-form button:hover {
     background-color: white;
     color: #209CEE
+}
+
+.signin-title {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 80px;
+    text-align: center;
+}
+
+.signin-subtitle {
+    font-family: 'Poppins', sans-serif;
+    color: #F4F4F4;
+    text-align: center;
+    font-size: 35px;
+}
+
+.graphimg img {
+    width: 80%;
+
+}
+
+.graphimg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
 }
